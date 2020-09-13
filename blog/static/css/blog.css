@@ -44,31 +44,3 @@ h1, h2, h3, h4 {
 .post h2 a, .post h2 a:visited {
     color: #000000;
 }
-Then surround the HTML code which displays the posts with declarations of classes. Replace this:
-
-blog/templates/blog/post_list.html
-{% for post in posts %}
-    <div class="post">
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-{% endfor %}
-in the blog/templates/blog/post_list.html with this:
-
-blog/templates/blog/post_list.html
-<div class="content container">
-    <div class="row">
-        <div class="col-md-8">
-            {% for post in posts %}
-                <div class="post">
-                    <div class="date">
-                        <p>published: {{ post.published_date }}</p>
-                    </div>
-                    <h2><a href="">{{ post.title }}</a></h2>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-</div>
